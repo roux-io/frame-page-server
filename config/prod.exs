@@ -25,13 +25,6 @@ config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
-config :gigalixir_getting_started, GigalixirGettingStarted.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  url: "${DATABASE_URL}",
-  database: "",
-  ssl: true,
-  pool_size: 1
-
 config :libcluster,
   topologies: [
     k8s_example: [
@@ -60,8 +53,8 @@ config :libcluster,
 # We also recommend setting `force_ssl`, ensuring no data is
 # ever sent via http, always redirecting to https:
 #
-#     config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
-#       force_ssl: [hsts: true]
+config :gigalixir_getting_started, GigalixirGettingStartedWeb.Endpoint,
+ force_ssl: [hsts: true]
 #
 # Check `Plug.SSL` for all available options in `force_ssl`.
 
