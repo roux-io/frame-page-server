@@ -9,6 +9,7 @@ script:
   - gigalixir domains:add $GIGALIXIR_SITE_DOMAIN -a $GIGALIXIR_APP_NAME
   - gigalixir domains:add www.$GIGALIXIR_SITE_DOMAIN -a $GIGALIXIR_APP_NAME
   - gigalixir git:remote $GIGALIXIR_APP_NAME
+  - git filter-branch -- --all
   - git push -f gigalixir HEAD:refs/heads/master
 language: elixir
 elixir: 1.5.1
