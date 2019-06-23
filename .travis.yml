@@ -6,9 +6,8 @@ install:
   - sudo pip install gigalixir
 script:
   - gigalixir login -e "$GIGALIXIR_EMAIL" -p "$GIGALIXIR_PASSWORD" -y
-  - gigalixir domains:add $GIGALIXIR_SITE_DOMAIN
-  - gigalixir domains:add www.$GIGALIXIR_SITE_DOMAIN
-  - gigalixir config:set foo=bar
+  - gigalixir domains:add $GIGALIXIR_SITE_DOMAIN -a $GIGALIXIR_APP_NAME
+  - gigalixir domains:add www.$GIGALIXIR_SITE_DOMAIN -a $GIGALIXIR_APP_NAME
   - gigalixir git:remote $GIGALIXIR_APP_NAME
   - mix test && git push -f gigalixir HEAD:refs/heads/master
 language: elixir
