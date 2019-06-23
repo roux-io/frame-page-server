@@ -10,6 +10,7 @@ script:
   - gigalixir domains:add www.$GIGALIXIR_SITE_DOMAIN -a $GIGALIXIR_APP_NAME
   - rm -r .git --force
   - git init
+  - git add *
   - git commit -m "$GIGALIXIR_SITE_DOMAIN"
   - gigalixir git:remote $GIGALIXIR_APP_NAME
   - git push -f gigalixir HEAD:refs/heads/master
