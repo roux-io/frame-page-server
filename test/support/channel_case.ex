@@ -25,13 +25,4 @@ defmodule GigalixirGettingStartedWeb.ChannelCase do
     end
   end
 
-
-  setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(GigalixirGettingStarted.Repo)
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(GigalixirGettingStarted.Repo, {:shared, self()})
-    end
-    :ok
-  end
-
 end
