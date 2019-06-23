@@ -4,15 +4,12 @@ install:
   - sudo apt-get install -y python-pip
   - sudo pip install --upgrade setuptools
   - sudo pip install gigalixir
-  - mix local.hex --force
-  - mix local.rebar --force
-  - mix deps.get --force
 script:
   - gigalixir login -e "$GIGALIXIR_EMAIL" -p "$GIGALIXIR_PASSWORD" -y
   - gigalixir domains:add $GIGALIXIR_SITE_DOMAIN -a $GIGALIXIR_APP_NAME
   - gigalixir domains:add www.$GIGALIXIR_SITE_DOMAIN -a $GIGALIXIR_APP_NAME
   - gigalixir git:remote $GIGALIXIR_APP_NAME
-  - mix test && git push -f gigalixir HEAD:refs/heads/master
+  - git push -f gigalixir HEAD:refs/heads/master
 language: elixir
 elixir: 1.5.1
 otp_release: 20.0
