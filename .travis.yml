@@ -5,6 +5,7 @@ install:
   - sudo pip install --upgrade setuptools
   - sudo pip install gigalixir
   - mix local.hex --force
+  - mix local.rebar --force
   - mix deps.get --force
 script:
   - gigalixir login -e "$GIGALIXIR_EMAIL" -p "$GIGALIXIR_PASSWORD" -y
